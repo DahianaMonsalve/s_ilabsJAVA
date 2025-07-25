@@ -39,8 +39,9 @@ public class LooginServlet extends HttpServlet {
             // Respuesta visual
             out.println("<html><body>");
             if (rs.next()) {
-                out.println("<h2 style='color:green;'>Bienvenido, " + nombre + "</h2>");
-            } else {
+                request.setAttribute("nombre", nombre);
+                request.getRequestDispatcher("bienvenido.jsp").forward(request, response);
+            }else {
                 out.println("<h2 style='color:red;'>Acceso denegado</h2>");
             }
             out.println("</body></html>");
@@ -51,7 +52,7 @@ public class LooginServlet extends HttpServlet {
             con.close();
 
         } catch (Exception e) {
-            e.printStackTrace(out); // muestra el error en el navegador por ahora
+            e.printStackTrace(out); // muestra el error en el navegador
         }
     }
 }
