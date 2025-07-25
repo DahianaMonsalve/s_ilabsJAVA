@@ -39,7 +39,7 @@ public class usuarioCRUD {
         System.out.println("========================================");
         
         //ACTUALIZACIÓN DE DATOS
-        System.out.println("\n ACTUALIZANDO usuario con ID 3, cambio de nombre de Ronaldp a Ronaldo");
+        System.out.println("\n ACTUALIZANDO usuario con ID 3, cambio de nombre de Ronaldp  Ronaldo");
         stmt.executeUpdate("UPDATE usuarios SET nombre='Ronaldo' WHERE id=3");
         rs = stmt.executeQuery("SELECT * FROM usuarios");
         while (rs.next()) {
@@ -49,8 +49,8 @@ public class usuarioCRUD {
         System.out.println("========================================");
         
         //ELIMINACIÓN DE DATOS
-        System.out.println("\n ELIMINANDO usuario con ID 5");
-        stmt.executeUpdate("DELETE FROM usuarios WHERE id=5");
+        System.out.println("\n ELIMINANDO usuario con ID 1");
+        stmt.executeUpdate("DELETE FROM usuarios WHERE id=1");
         rs = stmt.executeQuery("SELECT * FROM usuarios");
         while (rs.next()) {
             System.out.println("ID: " + rs.getInt("id") + " | Nombre: " + rs.getString("nombre"));
