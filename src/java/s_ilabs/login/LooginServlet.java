@@ -50,10 +50,7 @@ public class LooginServlet extends HttpServlet {
             rs.close();
             ps.close();
             con.close();
-
-        } catch (Exception e) {
-            e.printStackTrace(out); // muestra el error en el navegador
-        }
+        } 
     }
 }
 
