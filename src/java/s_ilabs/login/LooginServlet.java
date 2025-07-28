@@ -22,13 +22,13 @@ public class LooginServlet extends HttpServlet {
         PrintWriter out = response.getWriter();
 
         try {
-            // Conexión con la base de datos
+            //Conexión con la base de datos
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection con = DriverManager.getConnection(
                 "jdbc:mysql://localhost:3306/s_ilabjava", "root", "MySQL123"
             );
 
-            // Validación de credenciales
+            //Validación de credenciales en la BD
             PreparedStatement ps = con.prepareStatement(
                 "SELECT * FROM usuarios WHERE nombre=? AND password=?"
             );
@@ -36,7 +36,7 @@ public class LooginServlet extends HttpServlet {
             ps.setString(2, password);
             ResultSet rs = ps.executeQuery();
 
-            // Respuesta visual
+            //Respuesta al ingreso con archivo .jsp
             out.println("<html><body>");
             if (rs.next()) {
                 request.setAttribute("nombre", nombre);
@@ -46,7 +46,7 @@ public class LooginServlet extends HttpServlet {
             }
             out.println("</body></html>");
 
-            // Cierre de conexiones
+            //Cierre de conexiones -- Buenas práctica para liberar espacio
             rs.close();
             ps.close();
             con.close();
